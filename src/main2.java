@@ -1,4 +1,3 @@
-import java.sql.SQLOutput;
 import java.util.Scanner;
 public class main2 {
     public static void main (String[] args) {
@@ -8,11 +7,11 @@ public class main2 {
         String customerName;
         int choice;
         int quantity;
-        double price;
+        double price = 0;
         double total;
         double payment;
         double change;
-        String foodName;
+        String foodName = "";
 
 
         System.out.println("===== LIAN RESTAURANT =====");
@@ -49,12 +48,36 @@ public class main2 {
             System.out.println("INVALID CHOICE");
         }
 
-        System.out.print("Enter your quantity: ");
-        quantity = scanner.nextInt();
+        if (price > 0) {
 
-        total = price * quantity;
+            System.out.print("Enter your quantity: ");
+            quantity = scanner.nextInt();
 
-        System.out.println("");
+            total = price * quantity;
+
+            System.out.println("===== ORDER SUMMARY =====");
+            System.out.println("CUSTOMER NAME: " + customerName);
+            System.out.println("Food: " + foodName);
+            System.out.println("Price: $" + price);
+            System.out.println("Quantity: " + quantity);
+            System.out.println("TOTAL: " + total);
+
+            System.out.println("Enter the payment: ");
+            payment = scanner.nextDouble();
+
+            if (payment >= total) {
+                change = payment - total;
+                System.out.println("Change: $" + change);
+                System.out.println("THANK YOU FOR ORDERING!");
+            }
+            else {
+                System.out.println("INSUFFICIENT PAYMENT");
+            }
+
+        }
+
+
+
 
 
 
